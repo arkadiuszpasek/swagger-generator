@@ -3,4 +3,5 @@ docker run -v $PWD:/local -v $YAML_FILE_DIR:/local/resources --rm \
     generate \
     -i /local/resources/$YAML_FILE \
     -l typescript-fetch \
-    -o /local/src
+    -o /local/src \
+    -c /local/config.json
