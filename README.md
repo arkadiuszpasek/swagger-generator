@@ -29,3 +29,11 @@ Example usage in project's `package.json`:
 | ---- | ------ | -------- |
 | Required | -v $YAML_FILE_DIRECTORY:/resources:ro | make directory with definitions file accessible in container |
 | Optional | -v $PWD/build:/swagger/build | link built output |
+
+## Generator options
+[Codegen 3.0](https://github.com/swagger-api/swagger-codegen/tree/3.0.0)
+
+ - `npmName`
+ - `npmVersion`
+ - `supportsES6`
+ - `modelPropertyNaming`
