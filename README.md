@@ -7,10 +7,10 @@ tbd
 ### Prerequisites
   - Docker
 ### Steps
- 1. Build image using `Dockerfile` (e.g. `docker_build.sh`)
- 2. Export env variables described below (e.g. `source env/spinner.env`)
- 3. Run built image in container (e.g. `docker_run.sh`)
- 4. Package will be built in `build/`
+ - Build image using `Dockerfile` (e.g. `docker_build.sh`)
+ - Run image with env variables and volumes described below, e.g.:
+   - `source env/spinner.env`
+   - `docker_run.sh`
 
 Example usage in project's `package.json`:
 "@closerplatform/spinner": "/Users/.../swagger/build",
