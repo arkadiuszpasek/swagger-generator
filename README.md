@@ -15,7 +15,7 @@ tbd
 Example usage in project's `package.json`:
 "@closerplatform/spinner": "/Users/.../swagger/build",
 
-## Env Variables
+## Image Env Variables
 | Name | Function | Example |
 | ---- | -------- | ------- |
 | YAML_FILE_DIR | Path to directory which definitions file is in | /Users/resources
