@@ -1,5 +1,3 @@
-#!/bin/sh
-
 set -e
 
 if [[ -z ${PROJECT_NAME} ]]; then
@@ -12,14 +10,20 @@ if [[ -z ${YAML_FILE_PATH} ]]; then
   echo '$YAML_FILE_PATH not set' ; exit 1
 fi
 
+echo "Generating $PROJECT_NAME @ $PROJECT_VERSION from $YAML_FILE_PATH"
+rm -f config.json
+echo "{" >> config.json
+echo "  \"npmName\": \"$PROJECT_NAME\"," >> config.json
+echo "  \"npmVersion\": \"$PROJECT_VERSION\"," >> config.json
+echo "  \"supportsES6\": true," >> config.json
+echo "  \"modelPropertyNaming\": \"original\"" >> config.json
+echo "}" >> config.json
+
 java -jar swagger-codegen-cli.jar generate \
  -i $YAML_FILE_PATH \
  -l typescript-fetch \
  -o /swagger/build \
- -DnpmName=$PROJECT_NAME \
- -DnpmVersion=$PROJECT_VERSION \
- -DsupportsES6=true \
- -DmodelPropertyNaming="original"
+ -c /swagger/config.json
 
 ./post_process_unix.sh /swagger/build/api.ts
 cd build/
