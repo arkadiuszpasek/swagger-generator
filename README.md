@@ -18,14 +18,13 @@ Example usage in project's `package.json`:
 ## Image Env Variables
 | Name | Function | Example |
 | ---- | -------- | ------- |
-| YAML_FILE_DIR | Path to directory which definitions file is in | /Users/resources
-| YAML_FILE | Name on definitions file | closerAPI.yaml
+| YAML_FILE_PATH | Path to definitions file, depends on where the volume was mounted | /resources/closerAPI.yaml
 | PROJECT_NAME | Name of project, used when naming package.json | spinner |
 | PROJECT_VERSION | Version of project, used in package.json | 1.0.0 |
 | SHOULD_PUBLISH |  |
 
 ## Image volumes
-| Type | Volume | Function |
+| Type | Example | Function |
 | ---- | ------ | -------- |
 | Required | -v $YAML_FILE_DIRECTORY:/resources:ro | make directory with definitions file accessible in container |
 | Optional | -v $PWD/build:/swagger/build | link built output |
