@@ -24,7 +24,7 @@ Example usage in project's `package.json`:
 | SHOULD_PUBLISH |  |
 
 ## Image volumes
-| Type | Volume | Function |
+| Type | Example | Function |
 | ---- | ------ | -------- |
 | Required | -v $YAML_FILE_DIRECTORY:/resources:ro | make directory with definitions file accessible in container |
 | Optional | -v $PWD/build:/swagger/build | link built output |
