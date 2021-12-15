@@ -23,3 +23,9 @@ Example usage in project's `package.json`:
 | PROJECT_NAME | Name of project, used when naming package.json | spinner |
 | PROJECT_VERSION | Version of project, used in package.json | 1.0.0 |
 | SHOULD_PUBLISH |  |
+
+## Image volumes
+| Type | Volume | Function |
+| ---- | ------ | -------- |
+| Required | -v $YAML_FILE_DIRECTORY:/resources:ro | make directory with definitions file accessible in container |
+| Optional | -v $PWD/build:/swagger/build | link built output |
