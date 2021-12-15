@@ -29,10 +29,10 @@ java -jar swagger-codegen-cli.jar generate \
 cd build/
 
 npm install
-npm run build
 
 if [[ $SHOULD_PUBLISH = true ]]; then
   npm publish
 else 
   echo "SHOULD_PUBLISH is not true, will not publish package";
+  npm run build
 fi
