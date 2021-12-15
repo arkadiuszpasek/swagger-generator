@@ -1,0 +1,6 @@
+*.ts
+*.sh
+*.json
+.swagger-codegen-ignore
+.gitignore
+.swagger-codegen/

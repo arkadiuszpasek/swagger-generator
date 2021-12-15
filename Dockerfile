@@ -7,5 +7,6 @@ RUN wget https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cl
 
 COPY utils/post_process_unix.sh .
 COPY utils/build.sh .
+COPY package/.npmignore .
 
 CMD ["/bin/sh", "-c", "./build.sh"]

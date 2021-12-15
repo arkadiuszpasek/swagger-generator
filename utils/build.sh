@@ -10,7 +10,7 @@ if [[ -z ${YAML_FILE_PATH} ]]; then
   echo '$YAML_FILE_PATH not set' ; exit 1
 fi
 
-echo "Generating $PROJECT_NAME @ $PROJECT_VERSION from $YAML_FILE_PATH"
+echo "Generating $PROJECT_NAME@$PROJECT_VERSION: $YAML_FILE_PATH"
 rm -f config.json
 echo "{" >> config.json
 echo "  \"npmName\": \"$PROJECT_NAME\"," >> config.json
@@ -26,8 +26,10 @@ java -jar swagger-codegen-cli.jar generate \
  -c /swagger/config.json
 
 ./post_process_unix.sh /swagger/build/api.ts
+cp .npmignore build/
 cd build/
 
+echo "# $PROJECT_NAME - typescript sdk" > README.md
 npm install
 
 if [[ $SHOULD_PUBLISH = true ]]; then
