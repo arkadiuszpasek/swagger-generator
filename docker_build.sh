@@ -1,1 +1,1 @@
-docker build -t openapi-generator .
+docker build -t swagger-generator .

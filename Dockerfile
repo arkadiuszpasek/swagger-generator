@@ -1,17 +1,18 @@
-# FROM openapitools/openapi-generator-cli:v5.3.0 AS build
-
-
-
 FROM node:14.5.0-alpine3.12
 RUN apk add openjdk11
 
-WORKDIR /openapi
+WORKDIR /swagger
+RUN wget https://repo1.maven.org/maven2/io/swagger/codegen/v3/swagger-codegen-cli/3.0.30/swagger-codegen-cli-3.0.30.jar -O swagger-codegen-cli.jar
 
-COPY package-lock.json .
-COPY package.json .
+COPY utils/post_process_unix.sh .
+COPY config.json .
 
-RUN npm ci
-
-COPY tsconfig.json .
-
-CMD npm run generate && npm run build
+CMD java -jar swagger-codegen-cli.jar generate \
+ -i $YAML_FILE_PATH \
+ -l typescript-fetch \
+ -o /swagger/build \
+ -c config.json \
+ && ./post_process_unix.sh /swagger/build/api.ts \
+ && cd build/ \
+ && npm install \
+ && npm run build
